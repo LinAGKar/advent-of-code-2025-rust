@@ -25,7 +25,7 @@ fn part_1(input: &str) -> u32 {
         )
     }).collect::<Vec<_>>();
 
-    distances.sort_unstable_by(|a, b| a.0.partial_cmp(&b.0).unwrap());
+    distances.sort_unstable_by_key(|x| x.0);
 
     let mut neighbors_by_box = vec![Vec::<u16>::new(); junction_boxes.len()];
 
@@ -86,7 +86,7 @@ fn part_2(input: &str) -> u64 {
         )
     }).collect::<Vec<_>>();
 
-    distances.sort_unstable_by(|a, b| a.0.partial_cmp(&b.0).unwrap());
+    distances.sort_unstable_by_key(|x| x.0);
 
     let mut neighbors_by_box = vec![Vec::<usize>::new(); junction_boxes.len()];
     let mut circuit_by_box = (0..junction_boxes.len()).map(|i| i as u16).collect::<Vec<_>>();
