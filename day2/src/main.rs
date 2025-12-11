@@ -47,7 +47,11 @@ fn part_2(input: &str) -> u64 {
                 let denom2 = denom.pow((repeat_count - 1) as u32);
                 let start_part = start / denom2;
                 let end_part = end / denom2;
-                let start_part = if start <= build_num(start_part, repeat_count, denom) { start_part } else { start_part + 1 };
+                let start_part = if start <= build_num(start_part, repeat_count, denom) {
+                    start_part
+                } else {
+                    start_part + 1
+                };
                 let end_part = if end >= build_num(end_part, repeat_count, denom) { end_part } else { end_part - 1 };
                 (start_part..=end_part).map(|x| build_num(x, repeat_count, denom)).filter(|&x| {
                     let include = !dedup.contains(&x);

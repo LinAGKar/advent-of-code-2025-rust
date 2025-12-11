@@ -20,7 +20,9 @@ fn part_1(input: &str) -> usize {
                 [x + 1, y.wrapping_sub(1)],
                 [x + 1, y],
                 [x + 1, y + 1],
-            ].into_iter().filter(|&[other_x, other_y]| other_x < width && other_y < height && grid[other_y * width + other_x]).count() < 4
+            ].into_iter().filter(|&[other_x, other_y]|
+                other_x < width && other_y < height && grid[other_y * width + other_x]
+            ).count() < 4
         ).count()
     ).sum()
 }
@@ -45,7 +47,9 @@ fn part_2(input: &str) -> u16 {
             [x + 1, y.wrapping_sub(1)],
             [x + 1, y],
             [x + 1, y + 1],
-        ].into_iter().filter(|&[other_x, other_y]| other_x < width && other_y < height && grid[other_y * width + other_x]).count();
+        ].into_iter().filter(|&[other_x, other_y]|
+            other_x < width && other_y < height && grid[other_y * width + other_x]
+        ).count();
         if count < 4 && grid[y * width + x] {
             to_remove.push((x, y));
         }
